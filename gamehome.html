@@ -4,30 +4,38 @@
 <!DOCTPYE html>
 <html>
 <!---fixer comment-->
-<title>SFC3 GH</title>
-<meta name="viewport" content="width=1500, initial-scale=1">
-<link rel="shortcut icon" href="logo.png" />
-<body style="background-color: #ADD8E6;">
 <head>
-  <style>
-.bubble-1 {
-    font-family: verdana;
-    font-size: 60px;
-    font-weight: bold;
-    color: #ADD8E6;
-    text-align: left; /* Align text inside the bubble */
-    display: block; /* Ensure it takes full width */
-    padding: 20px 40px;
-    background: linear-gradient(145deg, #ff7b7b, #ffdf7b);
-    border-radius: 50px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    width: fit-content; /* Keep only as wide as the text */
-    margin-left: 0; /* Ensure it's fully left-aligned */
-    position: relative; /* Ensure no absolute centering is applied */
-}
+    <title>SFC3 GH</title>
+    <meta name="viewport" content="width=1500, initial-scale=1">
+    <link rel="shortcut icon" href="logo.png" />
+    <style>
+        .bubble-1 {
+            font-family: verdana;
+            font-size: 60px;
+            font-weight: bold;
+            color: #ADD8E6;
+            text-align: left; /* Align text inside the bubble */
+            display: block; /* Ensure it doesn't stay inline */
+            padding: 20px 40px;
+            background: linear-gradient(145deg, #ff7b7b, #ffdf7b);
+            border-radius: 50px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            width: fit-content; /* Prevent unnecessary width */
+            
+            /* ***THE KEY FIX*** */
+            margin: 20px 0 20px 0; /* Reset margin */
+            position: absolute; /* Force position */
+            left: 0; /* Send it all the way to the left */
+        }
 
+        /* Optional: Ensures the body allows absolute positioning */
+        body {
+            position: relative;
+        }
+</head>
+	    
 	.csgo-clicker {
             position: absolute;
             top: 372px; 
