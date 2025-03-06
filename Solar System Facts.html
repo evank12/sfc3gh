@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--BTW EVAN IF YOU ARE WONDERING WHAT THIS IS IT IS A THING IM MAKING FOR STUDYING IN THE SCHOOL-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbiting Ball</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to the top */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .text-box {
+            margin-top: 20px; /* Add space at the top */
+            margin-bottom: 20px; /* Add space below the text */
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .animation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1; /* Take up remaining space */
+            width: 100%;
+            position: relative;
+        }
+
+        .orbit {
+            position: absolute;
+            border-radius: 50%;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        /* Mercury's orbit */
+        .orbit-mercury {
+            width: 150px;
+            height: 150px;
+            animation-name: orbit;
+            animation-duration: 30s;
+            z-index: 2; /* Ensure Mercury is above Venus */
+        }
+
+        /* Venus's orbit */
+        .orbit-venus {
+            width: 270px; /* Updated to 270px */
+            height: 270px; /* Updated to 270px */
+            animation-name: orbit-venus; /* Use a custom keyframe for Venus */
+            animation-duration: 19s; /* Completes orbit every 19s */
+            z-index: 1; /* Ensure Venus is below Mercury */
+        }
+
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            border-radius: 50%;
+            cursor: pointer; /* Changes cursor to a pointer when hovering over the sun */
+            z-index: 3; /* Ensure the sun is above everything */
+        }
+
+        .planet {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer; /* Changes cursor to a pointer when hovering over the planet */
+        }
+
+        /* Mercury's style */
+        .planet-mercury {
+            background-color: #7F7F7F; /* Grayish-brown color for Mercury */
+        }
+
+        /* Venus's style */
+        .planet-venus {
+            background-color: #FFA500; /* Orange color for Venus */
+        }
+
+        /* Keyframes for Mercury and default orbits */
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Custom keyframes for Venus */
+        @keyframes orbit-venus {
+            from {
+                transform: rotate(-30deg); /* Start at -30 degrees (30 degrees to the left of Mercury) */
+            }
+            to {
+                transform: rotate(330deg); /* End at 330 degrees (-30 + 360) */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-box">Click on the planets to learn more about them!</div>
+    <div class="animation-container">
+        <!-- Sun -->
+        <div class="sun" id="sun"></div>
+
+        <!-- Mercury's orbit -->
+        <div class="orbit orbit-mercury">
+            <div class="planet planet-mercury" id="mercury"></div>
+        </div>
+
+        <!-- Venus's orbit -->
+        <div class="orbit orbit-venus">
+            <div class="planet planet-venus" id="venus"></div>
+        </div>
+    </div>
+
+    <script>
+        // Add a click event listener to the sun
+        document.getElementById('sun').addEventListener('click', function() {
+            alert("The sun is the ultimate powerhouse of our solar system! It’s a massive, glowing ball of gas that’s been burning for over 4.6 billion years. Did you know it’s so huge that 1.3 million Earths could fit inside it? Without the sun’s heat and light, life on Earth wouldn’t exist—so let’s give it some credit!");
+        });
+
+        // Add a click event listener to Mercury
+        document.getElementById('mercury').addEventListener('click', function() {
+            alert("Meet Mercury, the speed demon of the solar system! It’s the closest planet to the sun, but don’t let that fool you—it’s not the hottest (that’s Venus’s job). Mercury zips around the sun in just 88 Earth days, but a single day on Mercury lasts 59 Earth days. Imagine having a birthday every 3 months but waiting 2 months for the sun to rise!");
+        });
+
+        // Add a click event listener to Venus
+        document.getElementById('venus').addEventListener('click', function() {
+            alert("This is Venus. Venus is the hottest planet in our solar system, even though it's not the closest to the sun! Its thick atmosphere traps heat, creating a runaway greenhouse effect. A day on Venus is longer than its year—it takes 243 Earth days to rotate once, but only 225 Earth days to orbit the sun!");
+        });
+    </script>
+</body>
+</html>
